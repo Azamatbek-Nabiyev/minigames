@@ -1,3 +1,5 @@
+import './shared/styles/globals.scss';
+
 const app = document.querySelector<HTMLDivElement>('#app');
 
 if (app) {
