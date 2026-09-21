@@ -1,4 +1,6 @@
 import './header.scss';
+import { store } from '../../../app/store';
+import { createMobileMenu } from '../mobile-menu/mobile-menu';
 
 export function createHeader(): HTMLElement {
   const header = document.createElement('header');
@@ -25,9 +27,28 @@ export function createHeader(): HTMLElement {
         <button type="button" class="header__signup-btn">Sign Up</button>
       </div>
 
-      <button type="button" class="header__burger" aria-label="Open menu">☰</button>
+      <button type="button" class="header__burger" aria-label="Open menu" aria-expanded="false">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
     </div>
   `;
+
+  const burgerButton = header.querySelector<HTMLButtonElement>('.header__burger');
+  const mobileMenu = createMobileMenu();
+  header.append(mobileMenu);
+
+  burgerButton?.addEventListener('click', () => {
+    const { isMobileMenuOpen } = store.getState();
+    store.setState({ isMobileMenuOpen: !isMobileMenuOpen });
+  });
+
+  store.subscribe(() => {
+    const { isMobileMenuOpen } = store.getState();
+    burgerButton?.classList.toggle('header__burger--open', isMobileMenuOpen);
+    burgerButton?.setAttribute('aria-expanded', String(isMobileMenuOpen));
+  });
 
   return header;
 }
