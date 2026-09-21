@@ -1,0 +1,51 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.leaderboard {
+  padding: $spacing-5 $spacing-4;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $spacing-4;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+
+    th,
+    td {
+      padding: $spacing-3;
+      text-align: left;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    thead th {
+      background-color: $color-primary;
+      color: $color-white;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  &__optional {
+    display: none;
+
+    @include respond(tablet) {
+      display: table-cell;
+    }
+  }
+
+  // Mobile/tablet'da faqat top 3 qator ko'rinadi
+  tbody tr:nth-child(n + 4) {
+    display: none;
+
+    @include respond(desktop) {
+      display: table-row;
+    }
+  }
+}
