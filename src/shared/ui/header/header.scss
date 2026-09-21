@@ -1,0 +1,102 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.header {
+  background-color: $color-white;
+  border-bottom: 1px solid #e5e5e5;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $spacing-3 $spacing-4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    text-decoration: none;
+    color: $color-primary;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-lg;
+  }
+
+  &__nav {
+    display: none;
+
+    @include respond(tablet) {
+      display: block;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: $spacing-4;
+    list-style: none;
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    color: $color-text-muted;
+    font-size: $font-size-base;
+
+    &--active {
+      color: $color-primary;
+      font-weight: $font-weight-medium;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-2;
+  }
+
+  &__login-btn,
+  &__signup-btn {
+    padding: $spacing-2 $spacing-4;
+    border-radius: $radius-md;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    border: none;
+  }
+
+  &__login-btn {
+    background: transparent;
+    border: 1px solid $color-primary;
+    color: $color-primary;
+  }
+
+  &__signup-btn {
+    background-color: $color-accent;
+    color: $color-navy;
+  }
+
+  &__actions {
+    display: none;
+    gap: $spacing-2;
+
+    @include respond(tablet) {
+      display: flex;
+    }
+  }
+
+  &__burger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+
+    @include respond(tablet) {
+      display: none;
+    }
+  }
+}

@@ -1,5 +1,7 @@
+import { createHeader } from '../../shared/ui/header/header';
+
 export function createHomePage(): HTMLElement {
   const main = document.createElement('main');
-  main.innerHTML = '<h1>MiniGames — Home Page</h1>';
+  main.append(createHeader());
   return main;
 }
