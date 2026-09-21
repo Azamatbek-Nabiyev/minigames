@@ -1,0 +1,99 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.carousel {
+  padding: $spacing-5 $spacing-4;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacing-4;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+  }
+
+  &__controls {
+    display: flex;
+    gap: $spacing-2;
+  }
+
+  &__arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid $color-text-muted;
+    background: $color-white;
+    cursor: pointer;
+
+    &--active {
+      background: $color-accent;
+      border: none;
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: $spacing-3;
+    list-style: none;
+    overflow-x: auto;
+  }
+}
+
+.carousel-card {
+  container-type: inline-size;
+  position: relative;
+  flex: 0 0 130px;
+  height: 100px;
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  @include respond(tablet) {
+    flex-basis: 300px;
+    height: 180px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #6b8fb5, #3b3b6b);
+  }
+
+  &__overlay {
+    display: none;
+    position: absolute;
+    inset: auto 0 0 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    padding: $spacing-2;
+    color: $color-white;
+  }
+
+  &__title {
+    display: block;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: $spacing-1;
+  }
+
+  // Aynan shu qism — 288px threshold qoidasi
+  @container (min-width: 288px) {
+    .carousel-card__overlay {
+      display: block;
+    }
+  }
+}
