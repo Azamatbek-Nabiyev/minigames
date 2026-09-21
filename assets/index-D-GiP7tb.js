@@ -47,9 +47,9 @@
       </p>
       <button type="button" class="hero__button">Browse Library</button>
     </div>
-  `,e}var i=[{id:`islanders`,title:`ISLANDERS: New Shores`,likes:`54.2K`,rating:4.9},{id:`vacation-cafe`,title:`Vacation Cafe Simulator`,likes:`28.7K`,rating:4.8},{id:`winter-burrow`,title:`Winter Burrow`,likes:`32.4K`,rating:4.9},{id:`shelve-potions`,title:`Shelve the Potions!`,likes:`21.3K`,rating:4.7},{id:`heartopia`,title:`Heartopia`,likes:`46.8K`,rating:4.6}];function a(e){return`
+  `,e}var i=`/minigames/assets/little-corners-card-BzTzTJLT.jpg`,a=`/minigames/assets/tiny-glade-card-CS2XLEzK.jpg`,o=[{id:`islanders`,title:`ISLANDERS: New Shores`,likes:`54.2K`,rating:4.9,image:i},{id:`vacation-cafe`,title:`Vacation Cafe Simulator`,likes:`28.7K`,rating:4.8,image:a},{id:`winter-burrow`,title:`Winter Burrow`,likes:`32.4K`,rating:4.9,image:`/minigames/assets/tukoni-forest-keepers-card-CkPF-Hda.jpg`},{id:`shelve-potions`,title:`Shelve the Potions!`,likes:`21.3K`,rating:4.7,image:`/minigames/assets/vacation-cafe-simulator-card-Bzcyczbo.jpg`},{id:`heartopia`,title:`Heartopia`,likes:`46.8K`,rating:4.6,image:a}];function s(e){return`
     <li class="carousel-card">
-      <div class="carousel-card__image" aria-hidden="true"></div>
+      <div class="carousel-card__image" style="background-image: url('${e.image}')" aria-hidden="true"></div>
       <div class="carousel-card__overlay">
         <span class="carousel-card__title">${e.title}</span>
         <div class="carousel-card__meta">
@@ -58,7 +58,7 @@
         </div>
       </div>
     </li>
-  `}function o(){let e=document.createElement(`section`);return e.className=`carousel`,e.innerHTML=`
+  `}function c(){let e=document.createElement(`section`);e.className=`carousel`,e.innerHTML=`
     <div class="carousel__header">
       <h2 class="carousel__title">New Games</h2>
       <div class="carousel__controls">
@@ -67,36 +67,43 @@
       </div>
     </div>
     <ul class="carousel__track">
-      ${i.map(e=>a(e)).join(``)}
+      ${o.map(e=>s(e)).join(``)}
     </ul>
-  `,e}var s=[{rank:1,player:`Alex_Pro99`,gamesPlayed:142,totalScore:94250,streak:12,favoriteGame:`Heartopia`},{rank:2,player:`CozyGamer_x`,gamesPlayed:118,totalScore:81400,streak:8,favoriteGame:`Cat Mail Co.`},{rank:3,player:`MatchMaster`,gamesPlayed:98,totalScore:72110,streak:5,favoriteGame:`Tiny Glade`},{rank:4,player:`BubblePop`,gamesPlayed:87,totalScore:65900,streak:3,favoriteGame:`Whisper of the House`},{rank:5,player:`SudokuGod`,gamesPlayed:74,totalScore:59320,streak:2,favoriteGame:`Cat Chess`}];function c(e){return`
+  `;let t=e.querySelector(`.carousel__track`),n=e.querySelector(`[aria-label="Previous"]`),r=e.querySelector(`[aria-label="Next"]`);return n?.addEventListener(`click`,()=>{t?.scrollBy({left:-320,behavior:`smooth`})}),r?.addEventListener(`click`,()=>{t?.scrollBy({left:320,behavior:`smooth`})}),e}var l=[{rank:1,player:`Alex_Pro99`,initials:`AP`,avatarColor:`#F4C430`,gamesPlayed:142,totalScore:94250,streak:12,favoriteGame:`Heartopia`},{rank:2,player:`CozyGamer_x`,initials:`CG`,avatarColor:`#8FD9B6`,gamesPlayed:118,totalScore:81400,streak:8,favoriteGame:`Cat Mail Co.`},{rank:3,player:`MatchMaster`,initials:`MM`,avatarColor:`#A8D8F0`,gamesPlayed:98,totalScore:72110,streak:5,favoriteGame:`Tiny Glade`},{rank:4,player:`BubblePop`,initials:`BP`,avatarColor:`#E8B8E0`,gamesPlayed:87,totalScore:65900,streak:3,favoriteGame:`Whisper of the House`},{rank:5,player:`SudokuGod`,initials:`SG`,avatarColor:`#C6CEEC`,gamesPlayed:74,totalScore:59320,streak:2,favoriteGame:`Cat Chess`}];function u(e){return`
     <tr>
-      <th scope="row">#${e.rank}</th>
-      <td>${e.player}</td>
-      <td class="leaderboard__optional">${e.gamesPlayed}</td>
+      <th scope="row" class="leaderboard__rank ${e.rank===1?`leaderboard__rank--first`:``}">#${e.rank}</th>
+      <td>
+        <div class="leaderboard__player">
+          <span class="leaderboard__avatar" style="background-color: ${e.avatarColor}">${e.initials}</span>
+          <span class="leaderboard__player-name">${e.player}</span>
+        </div>
+      </td>
+      <td>${e.gamesPlayed}</td>
       <td>${e.totalScore.toLocaleString(`en-US`)}</td>
-      <td>🔥 ${e.streak}d</td>
-      <td class="leaderboard__optional">${e.favoriteGame}</td>
+      <td><span class="leaderboard__streak">🔥 ${e.streak} days</span></td>
+      <td><span class="leaderboard__badge">${e.favoriteGame}</span></td>
     </tr>
-  `}function l(){let e=document.createElement(`section`);return e.className=`leaderboard`,e.innerHTML=`
+  `}function d(){let e=document.createElement(`section`);return e.className=`leaderboard`,e.innerHTML=`
     <h2 class="leaderboard__title">Top Players This Week</h2>
-    <table class="leaderboard__table">
-      <caption class="visually-hidden">Weekly top players ranking</caption>
-      <thead>
-        <tr>
-          <th scope="col">Rank</th>
-          <th scope="col">Player</th>
-          <th scope="col" class="leaderboard__optional">Games</th>
-          <th scope="col">Score</th>
-          <th scope="col">Streak</th>
-          <th scope="col" class="leaderboard__optional">Favorite</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${s.map(e=>c(e)).join(``)}
-      </tbody>
-    </table>
-  `,e}function u(){let e=document.createElement(`section`);return e.className=`game-dev`,e.innerHTML=`
+    <div class="leaderboard__table-wrapper">
+      <table class="leaderboard__table">
+        <caption class="visually-hidden">Weekly top players ranking</caption>
+        <thead>
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Player</th>
+            <th scope="col">Games Played</th>
+            <th scope="col">Total Score</th>
+            <th scope="col">Streak</th>
+            <th scope="col">Favorite Game</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${l.map(e=>u(e)).join(``)}
+        </tbody>
+      </table>
+    </div>
+  `,e}function f(){let e=document.createElement(`section`);return e.className=`game-dev`,e.innerHTML=`
     <div class="game-dev__illustration" aria-hidden="true"></div>
     <div class="game-dev__card">
       <h2 class="game-dev__title">Are You a Game Developer?</h2>
@@ -110,7 +117,7 @@
         or contact us at <a href="mailto:developers@minigames.com">developers@minigames.com</a>
       </p>
     </div>
-  `,e}function d(){let e=document.createElement(`footer`);return e.className=`footer`,e.innerHTML=`
+  `,e}function p(){let e=document.createElement(`footer`);return e.className=`footer`,e.innerHTML=`
     <div class="footer__top">
       <div class="footer__brand">
         <a href="/" class="footer__logo">
@@ -145,9 +152,29 @@
       <div class="footer__column">
         <h3 class="footer__column-title">Community</h3>
         <div class="footer__socials">
-          <a href="/" class="footer__social-link" aria-label="Share">↗</a>
-          <a href="/" class="footer__social-link" aria-label="Community board">▤</a>
-          <a href="/" class="footer__social-link" aria-label="RSS feed">📶</a>
+         <a href="/" class="footer__social-link" aria-label="Share">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="18" cy="5" r="3"></circle>
+    <circle cx="6" cy="12" r="3"></circle>
+    <circle cx="18" cy="19" r="3"></circle>
+    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+  </svg>
+</a>
+<a href="/" class="footer__social-link" aria-label="Community board">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"></path>
+    <line x1="7" y1="8" x2="17" y2="8"></line>
+    <line x1="7" y1="11" x2="14" y2="11"></line>
+  </svg>
+</a>
+<a href="/" class="footer__social-link" aria-label="RSS feed">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9"></path>
+    <path d="M4 4a16 16 0 0 1 16 16"></path>
+    <circle cx="5" cy="19" r="1"></circle>
+  </svg>
+</a>
         </div>
       </div>
     </div>
@@ -164,7 +191,7 @@
         <span class="footer__credit-text">Designed with love</span>
       </div>
     </div>
-  `,e}function f(){let t=document.createElement(`div`);t.className=`auth-backdrop`,t.innerHTML=`
+  `,e}function m(){let t=document.createElement(`div`);t.className=`auth-backdrop`,t.innerHTML=`
     <div class="auth-dialog" role="dialog" aria-modal="true" aria-label="Authentication">
       <div class="auth-dialog__tabs" role="tablist">
         <button type="button" class="auth-dialog__tab" data-mode="login" role="tab">Login</button>
@@ -275,5 +302,5 @@
         </div>
       </div>
     </div>
-  `,t.addEventListener(`click`,n=>{n.target===t&&e.setState({isAuthDialogOpen:!1})});let n=t.querySelectorAll(`[data-mode]`);for(let t of n)t.addEventListener(`click`,n=>{n.preventDefault();let r=t.dataset.mode;(r===`login`||r===`register`)&&e.setState({authDialogMode:r})});let r=t.querySelectorAll(`.auth-dialog__tab`),i=t.querySelectorAll(`.auth-dialog__panel`);return e.subscribe(()=>{let{isAuthDialogOpen:n,authDialogMode:a}=e.getState();t.classList.toggle(`auth-backdrop--open`,n);for(let e of r){let t=e.dataset.mode===a;e.classList.toggle(`auth-dialog__tab--active`,t),e.setAttribute(`aria-selected`,String(t))}for(let e of i)e.classList.toggle(`auth-dialog__panel--active`,e.dataset.panel===a)}),document.addEventListener(`keydown`,t=>{t.key===`Escape`&&e.getState().isAuthDialogOpen&&e.setState({isAuthDialogOpen:!1})}),t}function p(){let e=document.createElement(`main`);return e.append(n()),e.append(r()),e.append(o()),e.append(l()),e.append(u()),e.append(d()),e.append(f()),e}function m(){let e=document.querySelector(`#app`);if(!e)throw Error(`Root element #app not found`);e.append(p())}m();
-//# sourceMappingURL=index-9Zt9DQMk.js.map
+  `,t.addEventListener(`click`,n=>{n.target===t&&e.setState({isAuthDialogOpen:!1})});let n=t.querySelectorAll(`[data-mode]`);for(let t of n)t.addEventListener(`click`,n=>{n.preventDefault();let r=t.dataset.mode;(r===`login`||r===`register`)&&e.setState({authDialogMode:r})});let r=t.querySelectorAll(`.auth-dialog__tab`),i=t.querySelectorAll(`.auth-dialog__panel`);return e.subscribe(()=>{let{isAuthDialogOpen:n,authDialogMode:a}=e.getState();t.classList.toggle(`auth-backdrop--open`,n);for(let e of r){let t=e.dataset.mode===a;e.classList.toggle(`auth-dialog__tab--active`,t),e.setAttribute(`aria-selected`,String(t))}for(let e of i)e.classList.toggle(`auth-dialog__panel--active`,e.dataset.panel===a)}),document.addEventListener(`keydown`,t=>{t.key===`Escape`&&e.getState().isAuthDialogOpen&&e.setState({isAuthDialogOpen:!1})}),t}function h(){let e=document.createElement(`main`);return e.append(n()),e.append(r()),e.append(c()),e.append(d()),e.append(f()),e.append(p()),e.append(m()),e}function g(){let e=document.querySelector(`#app`);if(!e)throw Error(`Root element #app not found`);e.append(h())}g();
+//# sourceMappingURL=index-D-GiP7tb.js.map
