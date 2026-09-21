@@ -44,6 +44,17 @@ export function createHeader(): HTMLElement {
     store.setState({ isMobileMenuOpen: !isMobileMenuOpen });
   });
 
+  const loginButton = header.querySelector<HTMLButtonElement>('.header__login-btn');
+  const signupButton = header.querySelector<HTMLButtonElement>('.header__signup-btn');
+
+  loginButton?.addEventListener('click', () => {
+    store.setState({ isAuthDialogOpen: true, authDialogMode: 'login' });
+  });
+
+  signupButton?.addEventListener('click', () => {
+    store.setState({ isAuthDialogOpen: true, authDialogMode: 'register' });
+  });
+
   store.subscribe(() => {
     const { isMobileMenuOpen } = store.getState();
     burgerButton?.classList.toggle('header__burger--open', isMobileMenuOpen);

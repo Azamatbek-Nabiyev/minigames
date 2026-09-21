@@ -1,0 +1,23 @@
+@use '../../styles/tokens' as *;
+
+.auth-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+
+  &--open {
+    display: flex;
+  }
+}
+
+.auth-dialog {
+  background-color: $color-white;
+  border-radius: $radius-lg;
+  padding: $spacing-5;
+  width: 90%;
+  max-width: 420px;
+}
