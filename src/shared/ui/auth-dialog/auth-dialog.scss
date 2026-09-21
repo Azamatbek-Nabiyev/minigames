@@ -102,3 +102,53 @@
   color: $color-primary;
   font-weight: $font-weight-medium;
 }
+
+.auth-dialog__form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+}
+
+.auth-dialog__field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-1;
+}
+
+.auth-dialog__label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-primary;
+}
+
+.auth-dialog__input {
+  padding: $spacing-2 $spacing-3;
+  border: 1px solid #d5d5d5;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba(59, 91, 219, 0.15);
+  }
+}
+
+.auth-dialog__forgot-link {
+  align-self: flex-end;
+  font-size: $font-size-sm;
+  color: $color-primary;
+  margin-top: -$spacing-2;
+}
+
+.auth-dialog__submit {
+  padding: $spacing-3;
+  background-color: $color-accent;
+  color: $color-navy;
+  border: none;
+  border-radius: $radius-md;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  margin-top: $spacing-2;
+}

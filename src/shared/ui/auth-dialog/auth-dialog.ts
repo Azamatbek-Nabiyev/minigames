@@ -16,6 +16,37 @@ export function createAuthDialog(): HTMLElement {
         <div class="auth-dialog__panel" data-panel="login">
           <h2 class="auth-dialog__title">Welcome Back!</h2>
           <p class="auth-dialog__subtitle">Sign in to resume your games and progress.</p>
+
+          <form class="auth-dialog__form" novalidate>
+            <div class="auth-dialog__field">
+              <label for="login-email" class="auth-dialog__label">Email Address</label>
+              <input
+                type="email"
+                id="login-email"
+                name="email"
+                class="auth-dialog__input"
+                placeholder="e.g. alex@minigames.com"
+                autocomplete="email"
+              />
+            </div>
+
+            <div class="auth-dialog__field">
+              <label for="login-password" class="auth-dialog__label">Password</label>
+              <input
+                type="password"
+                id="login-password"
+                name="password"
+                class="auth-dialog__input"
+                placeholder="••••••••"
+                autocomplete="current-password"
+              />
+            </div>
+
+            <a href="#" class="auth-dialog__forgot-link">Forgot Password?</a>
+
+            <button type="submit" class="auth-dialog__submit">Login</button>
+          </form>
+
           <p class="auth-dialog__switch-text">
             Don't have an account?
             <a href="#" class="auth-dialog__switch-link" data-mode="register">Register</a>
@@ -25,6 +56,59 @@ export function createAuthDialog(): HTMLElement {
         <div class="auth-dialog__panel" data-panel="register">
           <h2 class="auth-dialog__title">Create Account</h2>
           <p class="auth-dialog__subtitle">Join MiniGames to track your score &amp; streak.</p>
+
+          <form class="auth-dialog__form" novalidate>
+            <div class="auth-dialog__field">
+              <label for="register-username" class="auth-dialog__label">Username</label>
+              <input
+                type="text"
+                id="register-username"
+                name="username"
+                class="auth-dialog__input"
+                placeholder="e.g. CozyGamer_99"
+                autocomplete="username"
+              />
+            </div>
+
+            <div class="auth-dialog__field">
+              <label for="register-email" class="auth-dialog__label">Email Address</label>
+              <input
+                type="email"
+                id="register-email"
+                name="email"
+                class="auth-dialog__input"
+                placeholder="your.email@domain.com"
+                autocomplete="email"
+              />
+            </div>
+
+            <div class="auth-dialog__field">
+              <label for="register-password" class="auth-dialog__label">Password</label>
+              <input
+                type="password"
+                id="register-password"
+                name="password"
+                class="auth-dialog__input"
+                placeholder="Min. 8 characters"
+                autocomplete="new-password"
+              />
+            </div>
+
+            <div class="auth-dialog__field">
+              <label for="register-confirm-password" class="auth-dialog__label">Confirm Password</label>
+              <input
+                type="password"
+                id="register-confirm-password"
+                name="confirmPassword"
+                class="auth-dialog__input"
+                placeholder="Repeat your password"
+                autocomplete="new-password"
+              />
+            </div>
+
+            <button type="submit" class="auth-dialog__submit">Create Account</button>
+          </form>
+
           <p class="auth-dialog__switch-text">
             Already have an account?
             <a href="#" class="auth-dialog__switch-link" data-mode="login">Login</a>
