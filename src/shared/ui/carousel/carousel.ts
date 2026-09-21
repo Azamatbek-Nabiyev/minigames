@@ -33,5 +33,19 @@ export function createCarousel(): HTMLElement {
     </ul>
   `;
 
+  const track = section.querySelector<HTMLUListElement>('.carousel__track');
+  const previousButton = section.querySelector<HTMLButtonElement>('[aria-label="Previous"]');
+  const nextButton = section.querySelector<HTMLButtonElement>('[aria-label="Next"]');
+
+  const scrollAmount = 320;
+
+  previousButton?.addEventListener('click', () => {
+    track?.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  nextButton?.addEventListener('click', () => {
+    track?.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+
   return section;
 }

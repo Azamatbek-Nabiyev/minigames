@@ -16,9 +16,11 @@
 
   &__illustration {
     flex: 1;
-    min-height: 200px;
+    min-height: 300px;
     border-radius: $radius-lg;
-    background: linear-gradient(135deg, #6b8fb5, #3b3b6b);
+    background-image: url('../../../assets/images/game.png');
+    background-size: cover;
+    background-position: center;
   }
 
   &__card {

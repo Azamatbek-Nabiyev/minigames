@@ -43,6 +43,7 @@
     gap: $spacing-3;
     list-style: none;
     overflow-x: auto;
+    scroll-behavior: smooth;
   }
 }
 
@@ -53,10 +54,22 @@
   height: 100px;
   border-radius: $radius-md;
   overflow: hidden;
+  transition:
+    flex-basis 0.25s ease,
+    transform 0.25s ease;
 
   @include respond(tablet) {
     flex-basis: 300px;
     height: 180px;
+  }
+
+  &:hover {
+    flex-basis: 145px;
+    z-index: 2;
+
+    @include respond(tablet) {
+      flex-basis: 330px;
+    }
   }
 
   &__image {
