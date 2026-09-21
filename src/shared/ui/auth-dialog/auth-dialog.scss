@@ -4,13 +4,19 @@
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s;
 
   &--open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -20,4 +26,10 @@
   padding: $spacing-5;
   width: 90%;
   max-width: 420px;
+  transform: scale(0.9);
+  transition: transform 0.25s ease;
+
+  .auth-backdrop--open & {
+    transform: scale(1);
+  }
 }

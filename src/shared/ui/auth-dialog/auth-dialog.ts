@@ -22,5 +22,11 @@ export function createAuthDialog(): HTMLElement {
     backdrop.classList.toggle('auth-backdrop--open', isAuthDialogOpen);
   });
 
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && store.getState().isAuthDialogOpen) {
+      store.setState({ isAuthDialogOpen: false });
+    }
+  });
+
   return backdrop;
 }
