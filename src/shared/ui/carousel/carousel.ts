@@ -4,7 +4,7 @@ import { carouselGames } from './carousel.data';
 function createCard(game: (typeof carouselGames)[number]): string {
   return `
     <li class="carousel-card">
-      <div class="carousel-card__image" aria-hidden="true"></div>
+      <div class="carousel-card__image" style="background-image: url('${game.image}')" aria-hidden="true"></div>
       <div class="carousel-card__overlay">
         <span class="carousel-card__title">${game.title}</span>
         <div class="carousel-card__meta">

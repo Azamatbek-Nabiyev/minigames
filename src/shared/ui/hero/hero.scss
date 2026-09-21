@@ -2,7 +2,7 @@
 @use '../../styles/mixins' as *;
 
 .hero {
-  background-color: #d4c8b0;
+  background-image: url('../../../assets/images/hero.png');
   background-size: cover;
   background-position: center;
   padding: $spacing-6 $spacing-4;
