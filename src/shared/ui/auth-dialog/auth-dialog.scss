@@ -1,4 +1,5 @@
 @use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
 
 .auth-backdrop {
   position: fixed;
@@ -24,10 +25,16 @@
   background-color: $color-white;
   border-radius: $radius-lg;
   padding: $spacing-5;
-  width: 90%;
+  width: calc(100% - 40px);
   max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
   transform: scale(0.9);
   transition: transform 0.25s ease;
+
+  @include respond(tablet) {
+    width: 420px;
+  }
 
   .auth-backdrop--open & {
     transform: scale(1);
@@ -151,4 +158,13 @@
   font-weight: $font-weight-medium;
   cursor: pointer;
   margin-top: $spacing-2;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #e0b52e;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 }
