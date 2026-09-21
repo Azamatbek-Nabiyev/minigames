@@ -1,0 +1,113 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  background-color: $color-navy;
+  color: $color-white;
+  padding: $spacing-5 $spacing-4;
+
+  &__top {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-4;
+
+    @include respond(tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__brand {
+    max-width: 280px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    text-decoration: none;
+    color: $color-white;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-2;
+  }
+
+  &__tagline {
+    font-size: $font-size-sm;
+    color: #b0b0c0;
+    line-height: 1.5;
+  }
+
+  &__column-title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-3;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2;
+  }
+
+  &__link {
+    color: #b0b0c0;
+    text-decoration: none;
+    font-size: $font-size-sm;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: $spacing-2;
+  }
+
+  &__social-link {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: $color-white;
+    text-decoration: none;
+  }
+
+  &__bottom {
+    max-width: 1200px;
+    margin: $spacing-5 auto 0;
+    padding-top: $spacing-4;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2;
+    font-size: $font-size-sm;
+    color: #b0b0c0;
+
+    @include respond(tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__credits {
+    display: flex;
+    gap: $spacing-3;
+  }
+
+  &__credit-link {
+    color: #b0b0c0;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+}
