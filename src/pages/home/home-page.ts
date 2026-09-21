@@ -3,6 +3,7 @@ import { createHero } from '../../shared/ui/hero/hero';
 import { createCarousel } from '../../shared/ui/carousel/carousel';
 import { createLeaderboard } from '../../shared/ui/leaderboard/leaderboard';
 import { createGameDevelopmentSection } from '../../shared/ui/game-development/game-development';
+import { createFooter } from '../../shared/ui/footer/footer';
 
 export function createHomePage(): HTMLElement {
   const main = document.createElement('main');
@@ -11,5 +12,6 @@ export function createHomePage(): HTMLElement {
   main.append(createCarousel());
   main.append(createLeaderboard());
   main.append(createGameDevelopmentSection());
+  main.append(createFooter());
   return main;
 }
