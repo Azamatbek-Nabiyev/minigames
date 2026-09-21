@@ -1,6 +1,6 @@
-import './game-dev.scss';
+import './game-development.scss';
 
-export function createGameDevSection(): HTMLElement {
+export function createGameDevelopmentSection(): HTMLElement {
   const section = document.createElement('section');
   section.className = 'game-dev';
 
