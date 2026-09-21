@@ -29,7 +29,7 @@ export function createCarousel(): HTMLElement {
       </div>
     </div>
     <ul class="carousel__track">
-      ${carouselGames.map(createCard).join('')}
+      ${carouselGames.map((game) => createCard(game)).join('')}
     </ul>
   `;
 
