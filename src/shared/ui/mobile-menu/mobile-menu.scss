@@ -1,0 +1,79 @@
+@use '../../styles/tokens' as *;
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background-color: $color-navy;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-5;
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    visibility 0.3s;
+  z-index: 100;
+
+  &--open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__close {
+    position: absolute;
+    top: $spacing-4;
+    right: $spacing-4;
+    background: none;
+    border: none;
+    color: $color-white;
+    font-size: 32px;
+    cursor: pointer;
+  }
+
+  &__nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-4;
+  }
+
+  &__nav-link {
+    color: $color-white;
+    text-decoration: none;
+    font-size: $font-size-lg;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3;
+    width: 80%;
+    max-width: 300px;
+  }
+
+  &__login-btn,
+  &__signup-btn {
+    padding: $spacing-3;
+    border-radius: $radius-md;
+    font-size: $font-size-base;
+    cursor: pointer;
+    border: none;
+  }
+
+  &__login-btn {
+    background: transparent;
+    border: 1px solid $color-white;
+    color: $color-white;
+  }
+
+  &__signup-btn {
+    background-color: $color-accent;
+    color: $color-navy;
+  }
+}

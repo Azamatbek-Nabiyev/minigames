@@ -1,0 +1,42 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  background-image: url('../../../assets/images/hero.png');
+  background-size: cover;
+  background-position: center;
+  padding: $spacing-6 $spacing-4;
+  display: flex;
+  align-items: center;
+  min-height: 280px;
+
+  &__content {
+    background-color: $color-white;
+    border-radius: $radius-lg;
+    padding: $spacing-5;
+    max-width: 400px;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $spacing-3;
+  }
+
+  &__text {
+    color: $color-text-muted;
+    margin-bottom: $spacing-4;
+    line-height: 1.5;
+  }
+
+  &__button {
+    padding: $spacing-2 $spacing-4;
+    background-color: $color-accent;
+    color: $color-navy;
+    border: none;
+    border-radius: $radius-md;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+  }
+}
